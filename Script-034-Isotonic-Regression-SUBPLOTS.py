@@ -1,4 +1,5 @@
 print(__doc__)
+import os
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -9,7 +10,6 @@ from matplotlib.offsetbox import AnchoredText
 from sklearn.linear_model import LinearRegression
 from sklearn.isotonic import IsotonicRegression
 from sklearn.utils import check_random_state
-import os
 
 sns.set_style('darkgrid')
 sns.set_context("paper")
@@ -64,10 +64,10 @@ plt.plot(x, y1_, 'g.-', markersize=12, alpha=.5)
 plt.plot(x, lr1.predict(x[:, np.newaxis]), 'b-', linewidth=.5)
 plt.gca().add_collection(lc1)
 plt.legend(('Geologic Data', 'Isotonic Fit', 'Linear Fit'), loc='lower right')
-plt.title('Geology: sediment thickness', fontsize=10, fontfamily='serif')
-plt.xlabel('Bathymetric profiles, nr. 1-25', fontsize=10, fontfamily='sans-serif')
-plt.ylabel('Sediment thickness, m', fontsize=10, fontfamily='sans-serif')
-add_at(ax, "A", loc=2)
+plt.title('Geology: sediment thickness')
+plt.xlabel('Bathymetric profiles, nr. 1-25', fontfamily='sans-serif')
+plt.ylabel('Sediment thickness, m', fontfamily='sans-serif')
+add_at(ax, "A")
 
 # subplot 2
 ax = fig.add_subplot(122)
@@ -79,7 +79,7 @@ plt.legend(('Bathymetric Data', 'Isotonic Fit', 'Linear Fit'), loc='lower left')
 plt.title('Bathymetry: maximal depths', fontsize=10, fontfamily='serif')
 plt.xlabel('Bathymetric profiles, nr. 1-25', fontsize=10, fontfamily='sans-serif')
 plt.ylabel('Maximal depths, m', fontsize=10, fontfamily='sans-serif')
-add_at(ax, "B", loc=2)
+add_at(ax, "B")
 
 plt.tight_layout()
 plt.subplots_adjust(top=0.85, bottom=0.15,
